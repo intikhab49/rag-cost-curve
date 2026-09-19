@@ -162,8 +162,9 @@ capped at 128 tokens; a reasoning model spent that budget thinking and emitted
 nothing, silently collapsing the multi-hop loop to a single round. That
 understated `iterative` by **7.5 EM** (0.430 → 0.505). Fixed in `iterative.py`,
 and the meter no longer lets a deliberately capped auxiliary call set a query's
-terminal state. Pre-fix data is kept at
-`runs/luna200_musique/*.bak-preplannerfix`.
+terminal state. The pre-fix data is not carried in the tree, so the committed
+numbers are unambiguous; it stays available in git history:
+`git show b42c16e:runs/luna200_musique/raw.jsonl.bak-preplannerfix`.
 
 ---
 

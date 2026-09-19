@@ -101,7 +101,7 @@ sys.modules["anthropic"] = anthropic
 sys.modules["anthropic.types"] = anthropic.types
 
 # ---- fake index -------------------------------------------------------------
-sys.path.insert(0, str(Path(r"C:\Users\intikhab azam\rag-cost-curve\src")))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 from rcc.systems.base import Chunk, Hit  # noqa: E402
 from rcc.meter import Meter  # noqa: E402
 from rcc.systems import REGISTRY  # noqa: E402
