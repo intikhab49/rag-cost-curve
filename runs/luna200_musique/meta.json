@@ -1,0 +1,16 @@
+{
+  "run_id": "luna200_musique",
+  "finished_at": "2026-09-19T01:11:52.354916+00:00",
+  "n_queries": 200,
+  "systems": [
+    "naive",
+    "reranked",
+    "iterative",
+    "arag"
+  ],
+  "model": "gpt-5.6-luna",
+  "auto_cache": true,
+  "k": 5,
+  "effort": "high",
+  "usd_this_session": 0.0
+}

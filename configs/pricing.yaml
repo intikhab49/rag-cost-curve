@@ -1,0 +1,29 @@
+# USD per million tokens. Kept in config, not source, so a reader can check
+# these against published rates without reading Python -- and so a stale table
+# shows up as a stale date rather than a silently wrong dollar figure.
+#
+# cache_write / cache_read are optional; omitted, they derive as 1.25x and 0.10x
+# of input, which are the standard 5-minute-TTL multipliers.
+
+fetched_on: 2026-09-19
+
+models:
+  claude-opus-5:
+    input: 5.00
+    output: 25.00
+  claude-sonnet-5:
+    input: 2.00
+    output: 10.00
+  claude-haiku-4-5:
+    input: 1.00
+    output: 5.00
+
+  # Free tier on the Experiential Labs gateway. Priced at zero because that is
+  # what it actually costs -- so on a luna run the dollar columns are 0 by
+  # construction and the meaningful cost axis is calls + tokens. Swap in a paid
+  # model for the publishable cost numbers.
+  gpt-5.6-luna:
+    input: 0.00
+    output: 0.00
+    cache_write: 0.00
+    cache_read: 0.00

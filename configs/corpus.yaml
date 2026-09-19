@@ -1,0 +1,21 @@
+# The frozen corpus settings. Changing ANY value here invalidates every index
+# built from it: CorpusIndex.load recomputes this hash and refuses to open a
+# mismatched index rather than letting a run silently compare against a
+# different chunk set.
+#
+# Rebuild the index after changing these, and do not compare numbers across
+# two different config hashes.
+
+dataset: musique
+dataset_path: data/raw/musique_ans_v1.0_dev.jsonl
+out: data/corpus/musique
+
+chunk_size: 256      # words per chunk
+overlap: 32          # words shared between neighbours
+
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+
+# Whose tokenizer counts chunk tokens. Must match the model the run generates
+# with, or retrieved_tokens is measured against a different tokenizer than the
+# one being billed.
+model: claude-sonnet-5

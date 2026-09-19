@@ -1,0 +1,38 @@
+# One sweep. Every setting that can move a number lives here, and this file is
+# copied into the run directory before any spending starts.
+#
+# Change ONE thing per run. The comparison is only meaningful because every
+# system sees identical settings; a run that varies two things explains nothing.
+
+run_id: 2026-09-19_musique_sonnet5
+dataset: musique
+dataset_path: data/raw/musique_ans_v1.0_dev.jsonl
+index_path: data/corpus/musique
+
+systems:
+  - naive
+  - reranked
+  - iterative
+  - arag
+
+# Headline run. Mid-tier keeps a 200-query x 4-system sweep in single digits of
+# dollars; re-run with claude-haiku-4-5 and claude-opus-5 for the scaling axis
+# (does the agent's advantage shrink as the model gets stronger? the A-RAG
+# authors list that as unvalidated).
+model: claude-sonnet-5
+
+n_queries: 200
+seed: 0
+
+# Shared across every system. These are the fairness controls.
+k: 5
+effort: high
+max_tokens: 4096
+
+# Prompt caching. Worth several multiples to the agentic systems (they resend
+# history every step) and nothing to the single-shot ones. Run the sweep both
+# ways -- whether caching flips the verdict is itself a result.
+auto_cache: true
+
+runs_dir: runs
+pricing_path: configs/pricing.yaml

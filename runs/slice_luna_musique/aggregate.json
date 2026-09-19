@@ -1,0 +1,139 @@
+{
+  "run_id": "slice_luna_musique",
+  "model": "gpt-5.6-luna",
+  "auto_cache": true,
+  "k": 5,
+  "effort": "high",
+  "baseline": "naive",
+  "priced_as": "claude-sonnet-5",
+  "cost_is_estimate": true,
+  "bootstrap_samples": 2000,
+  "systems": [
+    {
+      "system": "naive",
+      "n": 10,
+      "em": 0.6,
+      "f1": 0.6,
+      "em_ci_low": 0.3,
+      "em_ci_high": 0.9,
+      "usd_total": 0.034488,
+      "usd_per_query": 0.003449,
+      "usd_per_correct": 0.005748,
+      "llm_calls_mean": 1.0,
+      "input_tokens_mean": 738.4,
+      "cache_read_tokens_mean": 0.0,
+      "cache_write_tokens_mean": 0.0,
+      "output_tokens_mean": 197.2,
+      "retrieved_unique_mean": 540.7,
+      "retrieved_billed_mean": 540.7,
+      "latency_p50_ms": 1880,
+      "latency_p95_ms": 26309,
+      "latency_n": 10,
+      "terminated": {
+        "answered": 10
+      },
+      "tool_calls_mean": {
+        "semantic_search": 1.0
+      }
+    },
+    {
+      "system": "reranked",
+      "n": 10,
+      "em": 0.7,
+      "f1": 0.7,
+      "em_ci_low": 0.4,
+      "em_ci_high": 1.0,
+      "usd_total": 0.02746,
+      "usd_per_query": 0.002746,
+      "usd_per_correct": 0.003923,
+      "llm_calls_mean": 1.0,
+      "input_tokens_mean": 794.5,
+      "cache_read_tokens_mean": 0.0,
+      "cache_write_tokens_mean": 0.0,
+      "output_tokens_mean": 115.7,
+      "retrieved_unique_mean": 594.8,
+      "retrieved_billed_mean": 594.8,
+      "latency_p50_ms": 8194,
+      "latency_p95_ms": 21814,
+      "latency_n": 10,
+      "terminated": {
+        "answered": 10
+      },
+      "tool_calls_mean": {
+        "rerank": 1.0,
+        "semantic_search": 1.0
+      }
+    },
+    {
+      "system": "iterative",
+      "n": 10,
+      "em": 0.8,
+      "f1": 0.8,
+      "em_ci_low": 0.5,
+      "em_ci_high": 1.0,
+      "usd_total": 0.07055,
+      "usd_per_query": 0.007055,
+      "usd_per_correct": 0.008819,
+      "llm_calls_mean": 2.5,
+      "input_tokens_mean": 1454.6,
+      "cache_read_tokens_mean": 0.0,
+      "cache_write_tokens_mean": 250.7,
+      "output_tokens_mean": 351.9,
+      "retrieved_unique_mean": 1043.8,
+      "retrieved_billed_mean": 1171.4,
+      "latency_p50_ms": 3368,
+      "latency_p95_ms": 6528,
+      "latency_n": 10,
+      "terminated": {
+        "context_limit": 7,
+        "answered": 3
+      },
+      "tool_calls_mean": {
+        "semantic_search": 1.8
+      }
+    },
+    {
+      "system": "arag",
+      "n": 10,
+      "em": 0.9,
+      "f1": 0.9,
+      "em_ci_low": 0.7,
+      "em_ci_high": 1.0,
+      "usd_total": 0.09824,
+      "usd_per_query": 0.009824,
+      "usd_per_correct": 0.010916,
+      "llm_calls_mean": 3.3,
+      "input_tokens_mean": 912.0,
+      "cache_read_tokens_mean": 1568.7,
+      "cache_write_tokens_mean": 1814.9,
+      "output_tokens_mean": 314.9,
+      "retrieved_unique_mean": 749.0,
+      "retrieved_billed_mean": 1052.1,
+      "latency_p50_ms": 5628,
+      "latency_p95_ms": 9145,
+      "latency_n": 10,
+      "terminated": {
+        "answered": 10
+      },
+      "tool_calls_mean": {
+        "chunk_read": 0.6,
+        "keyword_search": 1.3,
+        "semantic_search": 1.5
+      }
+    }
+  ],
+  "comparisons": {
+    "reranked_vs_naive": {
+      "p_better": 0.654,
+      "n_shared_queries": 10
+    },
+    "iterative_vs_naive": {
+      "p_better": 0.8855,
+      "n_shared_queries": 10
+    },
+    "arag_vs_naive": {
+      "p_better": 0.97,
+      "n_shared_queries": 10
+    }
+  }
+}

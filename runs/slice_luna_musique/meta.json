@@ -1,0 +1,16 @@
+{
+  "run_id": "slice_luna_musique",
+  "finished_at": "2026-09-18T22:58:43.867923+00:00",
+  "n_queries": 10,
+  "systems": [
+    "naive",
+    "reranked",
+    "iterative",
+    "arag"
+  ],
+  "model": "gpt-5.6-luna",
+  "auto_cache": true,
+  "k": 5,
+  "effort": "high",
+  "usd_this_session": 0.0
+}
